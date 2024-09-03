@@ -1,0 +1,136 @@
+#!/bin/bash
+
+install() {
+    set -e
+    
+    echo "Installing....!"
+    # Install Docker Engine
+    sudo apt install -y docker.io
+
+    # Start and enable Docker service
+    sudo systemctl start docker
+    sudo systemctl enable docker
+
+    # Install Docker Compose
+    sudo apt install -y docker-compose
+
+    #sudo permission for user
+    sudo chmod 777 /var/run/docker.sock
+    # Verify Docker installation
+    docker --version
+    docker-compose --version
+    echo "Done....!"
+}
+
+log(){
+      echo "Chosse the container name to display the log"
+      docker ps --format "{{.Names}}"
+      read -p "Enter the container name : " user_command
+      docker logs -f $user_command
+}
+build(){
+      read -p "Enter the image name with tag Ex.(image_name:tag): " image_name
+      sudo docker build -t $image_name .
+
+}
+
+list() {
+    echo "Docker Images List."
+    docker image ls
+}
+search() {
+    echo "Searching for docker in local machine."
+    sudo apt-cache search docker
+}
+version() {
+    docker -v
+}
+processor() {
+    echo "Running Docker Processor."
+    docker ps
+}
+
+start() {
+    	
+    echo "Docker Starting...."
+    docker-compose -f docker/docker-compose.yml up
+    ARRAY=$(hostname -I)
+    IP=$(sed 's/\s.*$//' <<<"$ARRAY")
+    echo "Odoo @ http://localhost:8069 or http://$IP:8069"
+}
+
+stop() {
+    docker-compose -f docker/docker-compose.yml down
+    echo "All the Processor are stopped"
+}
+
+nohup() {
+    echo "no hang up activated."
+    docker-compose -f docker/docker-compose.yml up -d
+}
+
+check-service-status() {
+    sudo systemctl status docker
+}
+service-start() {
+    sudo systemctl start docker
+}
+service-stop() {
+    sudo systemctl stop docker
+}
+service-enable() {
+    sudo systemctl enable docker
+}
+service-disable() {
+    sudo systemctl disable docker
+}
+
+removeall() {
+    docker system prune
+    echo "All the unused Images and containers are removed."
+}
+details() {
+    sudo docker version
+}
+info() {
+    sudo docker info
+}
+help () {
+    echo "COMMANDS "
+    echo "---------------------------------------------------------------------------"
+    echo "+"
+    echo "start      | Use the start command to run the docker"
+    echo "stop       | Use the stop command to stop the docker"
+    echo "nohup      | nohup is used to 'no hang up' that means server will run in background."
+    echo "log        | to see the contianer log"
+    echo "build      | to build the docker image"
+    echo "install    | Use the install command to install docker setup in local env"
+    echo "ls         | Use this command to list the available docker images"
+    echo "ps         | Use this command to list monitor the running docker containers"
+    echo "removeall  | Use this command to remove all the docker containers and images"
+    echo "clear      | Use this command to clear the docker"
+}
+case $@ in
+    start) start $@;;
+    stop ) stop $@;;
+    nohup)  nohup $@;;
+    log)  log $@;;
+    build)  build $@;;
+    ls)  list $@;;
+    help)  help $@;;
+    ps) processor $@;;
+    info) info $@;;
+    --install | -i) install $@;;
+    --removeall | -ra) removeall $@;;
+    --clear | -c) removeall $@;;
+    --help | -h) help $@;;
+    --search | -s) search $@;;
+    --version | -v) version $@;;
+    --details | -d) details $@;;
+    --service-status | -status) check-service-status $@;;
+    --service-start | -start) service-start $@;;
+    --service-stop | -stop) service-stop $@;;
+    --service-enable | -enable) service-enable $@;;
+    --service-disable | -disable) service-start $@;;
+    *) echo "Invalid option selected";;
+esac
