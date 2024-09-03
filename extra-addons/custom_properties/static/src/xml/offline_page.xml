@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+	<t t-extend="web.webclient_offline">
+	  <t t-jquery=".card" t-operation="replace">	
+		    <h> Hari </h>
+	</t>
+	</t>
+</templates>
+

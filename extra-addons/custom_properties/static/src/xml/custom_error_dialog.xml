@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="custom_user_error" t-inherit="web.WarningDialog" t-inherit-mode="extension">
+        <xpath expr="//Dialog" position="replace">
+        <Dialog title="'Alert !'" size="'md'" class="popup">
+          <div role="alert" id="web_dialog" class="container">
+             <div class="left">
+             <img src="/custom_properties/static/src/img/robot.gif" alt="Example Image" width="100" height="100"/>
+             </div>
+             <div class="right">
+               <p t-esc="message"/>
+             </div>
+             <t t-set-slot="footer">
+               <button class="btn btn-primary o-default-button"  style="width:15%;" t-on-click="props.close">Close</button>
+              </t>
+           </div>
+        </Dialog>
+        </xpath>
+    </t>
+
+    <t t-name="custom_error" t-inherit="web.ErrorDialog" t-inherit-mode="extension">
+       
+        <xpath expr="//Dialog" position="replace">
+            <Dialog title="'Application Error'">
+                <div class="alert alert-warning clearfix" id="web_dialog" role="alert">
+                    <div class="float-end ml8 btn-group-vertical">
+                        <button class="btn btn-primary" t-on-click="onClickClipboard">
+                            <i class="fa fa-clipboard mr8"/><t>Copy the full error to clipboard</t>
+                        </button>
+                    </div>
+                    <p><b>An error occurred </b></p>
+                    <p>Kindly reachout to <a href="mailto:hariprasath.a@kgisl.com">hariprasath.a@kgisl.com</a> for help</p>
+                </div>
+            </Dialog>
+        </xpath>
+    </t>
+</templates>
+

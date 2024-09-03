@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    
+    <!-- Top menu item -->
+    <menuitem name="Custom Properties" id="custom_properties_m_root" web_icon="custom_properties,static/description/icon.png"/>
+
+    <!-- menu categories -->
+    <menuitem id="custom_properties_mail_sub_menu" name="Mail"
+            parent="custom_properties_m_root" sequence="1" />
+    
+    <!-- menu categories -->
+    <menuitem id="custom_properties_sms_sub_menu" name="SMS"
+            parent="custom_properties_m_root" sequence="2" />
+
+    <!-- menu categories -->
+    <menuitem id="custom_properties_general_sub_menu" name="General"
+            parent="custom_properties_m_root" sequence="3" />
+
+  </data>
+</odoo>

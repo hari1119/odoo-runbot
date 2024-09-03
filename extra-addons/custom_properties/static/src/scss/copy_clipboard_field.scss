@@ -1,0 +1,32 @@
+.o_field_CopyClipboardChar {
+    > div {
+        grid-template-columns: auto min-content;
+        border: 1px solid #FFFFFF;
+        font-size: $font-size-sm;
+        color: o-text-color('primary');
+        font-weight: $badge-font-weight;
+
+        .o_input {
+            border: none;
+            padding-left: 4px;
+        }
+        .o_clipboard_button {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        > span:first-child, a {
+            margin-top: 0px;
+            margin-right: 0px;
+            align-self: center;
+            font-size: 16px;
+            text-align: left;
+
+            &:not(.o_field_CopyClipboardText) {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

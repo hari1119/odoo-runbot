@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_properties,custom_properties,model_custom_properties,base.group_user,1,1,1,1
+access_cp_mail_configuration,cp.mail.configuration,model_cp_mail_configuration,base.group_user,1,1,1,1
+access_cp_mail_configuration_line,cp.mail.configuration.line,model_cp_mail_configuration_line,base.group_user,1,1,1,1
+access_cp_sms_configuration,cp.sms.configuration,model_cp_sms_configuration,base.group_user,1,1,1,1
+access_cp_sms_configuration_line,cp.sms.configuration.line,model_cp_sms_configuration_line,base.group_user,1,1,1,1
+access_cp_mail_queue,cp.mail.queue,model_cp_mail_queue,base.group_user,1,1,1,1
+access_cp_mail_queue_line,cp.mail.queue.line,model_cp_mail_queue_line,base.group_user,1,1,1,1
+access_cp_sms_queue,cp.sms.queue,model_cp_sms_queue,base.group_user,1,1,1,1
+access_cp_ir_sequence_generate,cp.ir.sequence.generate,model_cp_ir_sequence_generate,base.group_user,1,1,1,1
+access_cp_scheduler,cp.scheduler,model_cp_scheduler,base.group_user,1,1,1,1
+access_cp_external_apis,cp.external.apis,model_cp_external_apis,base.group_user,1,1,1,1
+access_cp_pin_records,cp.pin.records,model_cp_pin_records,base.group_user,1,1,1,1
+access_failure_history,failure.history,model_failure_history,base.group_user,1,1,1,1
+access_cp_popup_notification,cp.popup.notification,model_cp_popup_notification,base.group_user,1,1,1,1
+

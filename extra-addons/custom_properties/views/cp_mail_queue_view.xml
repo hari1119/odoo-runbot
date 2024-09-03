@@ -1,0 +1,165 @@
+<odoo>
+  <data>
+    
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="cp_mail_queue_form">
+      <field name="name">Mail Queue form</field>
+      <field name="model">cp.mail.queue</field>
+      <field name="arch" type="xml">
+        <form string="Mail Queue" delete="0" create="0">
+            <header>
+                <button string="Send"
+                    class="btn btn-primary"
+                    type="object"
+                    name="send_mail" invisible = "status != 'pending'" context="{'queue_id': active_id}"/>
+                <field name="status" widget="statusbar" style="width:700px;"/>                
+
+            </header>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name" readonly="1" force_save="1"/>
+                        <field name="mail_from" readonly="1" force_save="1"/>
+                        <field name="mail_to" readonly="1" force_save="1"/>
+                        <field name="mail_cc" readonly="1" force_save="1"/>
+                        <field name="mail_bcc" readonly="1" force_save="1"/>
+                        <field name="subject" readonly="1" force_save="1"/>
+                        <field name="user_id" readonly="1" force_save="1"/>
+                        <field name="crt_date" readonly="1" force_save="1"/>
+                        <field name="sent_time" readonly="1" force_save="1"/>
+                    </group>
+                </group>
+                
+                <notebook>
+                    <page string="Body">
+                        <field name="body" readonly="1" force_save="1"/>
+                    </page>
+                    <page string="Attachments" >
+                        <field name="line_ids" string="Attachments" colspan="4" nolabel="1" readonly="1" force_save="1">
+                            <tree string="Attachments Line Tree" editable="bottom">
+
+                                <field name="status" column_invisible="1"/>
+                                <field name="header_id" column_invisible="1"/>
+                                <field name="attachment" readonly="1" force_save="1" widget="many2many_binary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Entry Info">
+                        <group>
+                            <group>
+                                <field name="company_id" readonly = "1" force_save="1"/> 
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle" readonly="1"/>
+                                <field name="entry_mode"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="update_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="update_date" readonly = "1" force_save="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook> 
+            </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- form view end -->
+
+    
+    <!-- explicit tree view definition -->
+    <record id="cp_mail_queue_tree" model="ir.ui.view">
+        <field name="name">Mail Queue Tree</field>
+        <field name="model">cp.mail.queue</field>
+        <field name="arch" type="xml">
+            <tree string="Mail Queue"
+                sample="1" create="0" delete="0"
+                decoration-info = "status == 'pending'"
+                decoration-muted = "status == 'sent'">
+                <header>
+                    <button name="batch_send_mail" type="object" string="Send Mail"/>
+                </header>
+                <field name="crt_date"/>
+                <field name="name"/>
+                <field name="mail_to"/>
+                <field name="mail_cc"/>
+                <field name="mail_bcc"/>
+                <field name="subject"/>
+                <field name="status" widget="badge" 
+                        decoration-info = "status == 'pending'"
+                        decoration-muted = "status == 'sent'"/>
+                <field name="sent_time"/>
+            </tree>
+        </field>
+    </record>
+    <!-- tree view end -->
+
+    <!-- explicit search view definition -->
+    <record id="cp_mail_queue_search" model="ir.ui.view">
+        <field name="name">Mail Queue Search</field>
+        <field name="model">cp.mail.queue</field>
+        <field name="arch" type="xml">
+            <search string="Search Mail Queue">
+                <field name="name"/>
+                <field name="subject"/>
+
+                <filter name="Pending" domain="[('status', '=', 'pending')]"/>
+                <filter name="Sent" domain="[('status', '=', 'sent')]"/>
+                <filter name="Hidden" domain="[('active', '=', False)]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by': 'name'}"/>
+                    <filter string="Subject" name="subject" domain="[]" context="{'group_by': 'subject'}"/>
+                    <filter string="Created Date" name="crt_date" domain="[]" context="{'group_by': 'crt_date'}"/>
+                    <filter string="Status" name="status" domain="[]" context="{'group_by': 'status'}"/>
+                    <filter string="Entry Mode" name="entry_mode" domain="[]" context="{'group_by': 'entry_mode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- search view end -->
+
+
+    <!-- window actions opening views on models -->
+
+    <record id="cp_mail_queue_win_action" model="ir.actions.act_window" >
+      <field name="name">Mail Queue</field>
+      <field name="res_model">cp.mail.queue</field>
+      <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="cp_mail_queue_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            No mail queue record found. Let's create one!
+          </p><p>
+            This is for mail queue.
+          </p>
+        </field>
+    </record>
+    
+    <!-- Separate tree view definition -->
+    <record id="cp_view_mail_queue_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="custom_properties.cp_mail_queue_tree"/>
+        <field name="act_window_id" ref="cp_mail_queue_win_action"/>
+    </record>
+    
+    <!-- Separate form view definition -->
+    <record id="cp_view_mail_queue_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="custom_properties.cp_mail_queue_form"/>
+        <field name="act_window_id" ref="cp_mail_queue_win_action"/>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="Mail Queue" id="cp_mail_queue_act_menu" parent="custom_properties_mail_sub_menu"
+              action="cp_mail_queue_win_action"/>
+  </data>
+</odoo>

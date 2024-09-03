@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Template for the Search Bar in the Systray -->
+<templates xml:space="preserve">
+    <t t-name="master_search_systray.MasterSearchDialog" owl="1">
+       <div class="master-onboard_modal-container master_modal-container border-start">
+        <div class="o-mail-ActionPanel border-start overflow-auto d-flex flex-column flex-shrink-0 position-relative p-3 pt-0 h-100 bg-view master-search-header" t-att-class="{ 'bg-view': !env.inChatter }">
+             <i t-on-click="closeTab" class="fa fa-close text-end" style="font-size:25px;color:red;"/>
+            <div class="o-mail-ActionPanel-header position-sticky top-0 py-3 d-flex align-items-baseline overflow-auto bg-view" t-att-class="{ 'bg-view': !env.inChatter }">
+                <button t-if="env.closeActionPanel" class="o-mail-ActionPanel-backButton btn opacity-75 opacity-100-hover ps-0 py-0 fs-5" title="Close panel" t-on-click.stop="env.closeActionPanel">
+                    <i class="oi oi-arrow-left"/>
+                </button>
+                <p t-if="props.title" class="fs-6 fw-bold text-uppercase m-0 text-700 flex-grow-1" t-esc="props.title"/>
+            </div>
+            <t t-slot="default"/>
+              <div>
+                    <p class="fs-6 fw-bold text-uppercase m-0 text-700 flex-grow-1">Global Search <i t-on-click="closeTab" class="oi oi-arrow-right"/></p>
+              </div>
+              <br/>
+              <div class="d-flex pb-2">
+                <div class="input-group" t-on-click="(ev) => this.onCLickMasterModal(ev)">
+                    <div class="o_searchview form-control d-flex align-items-center py-1" role="search" aria-autocomplete="list">
+                        <div class="o_searchview_input_container d-flex flex-grow-1 flex-wrap gap-1 master-search-pannel">
+                            <input type="text" accesskey="Q" style="width:500px;height:20px;pedding:10px;" placeholder="Search..." t-ref="autofocus" role="searchbox"/>
+                        </div>
+                    <select  t-model="state.options" t-on-click="selectionOnclick" class="caret scrollable-dropdown select-style" style="width:100px;">
+                        <option value="global">All Fields</option>
+                        <option value="only-name">Only Name</option>
+                    </select>
+                    </div>
+                    <button class="btn btn-outline-primary" t-on-click="onSearchInput" aria-label="Search button">
+                        <i class="o_searchview_icon oi oi-search" role="img" aria-label="Search Messages" title="Search Messages"/>
+                    </button>
+                </div>
+            </div>
+        <div class="o-mail-MessageCardList d-flex flex-column overflow-auto" t-ref="message-list">
+           <t t-if="items">
+             <t t-if="items.length > 1">
+               <p class="o-mail-SearchMessagesPanel-title py-1 mb-0 fw-bolder text-center text-uppercase text-700">
+                       <t t-esc="items.length"/> matches found</p>
+              </t>
+            <div class="card mb-2 limited-content" t-foreach="items" t-as="content"
+                                        t-key="content[0]['title']" style="padding:5px">
+                <t t-foreach="content" t-as="item" t-key="item.id">
+                   <small class="position-relative d-block text-small mb-1 ps-5">
+                        <span class="o-mail-MessageInReply-corner position-absolute bottom-0 top-50 pe-4 border-top text-300 o-isLeftAlign border-start ms-n2"></span>
+                        <span class="fs-6 fw-bold text-uppercase m-0 text-700 flex-grow-1 d-inline-flex align-items-center text-muted opacity-75 cursor-pointer opacity-100-hover" style="text-align:center;"><t t-esc="item.title"/></span>
+                   </small>
+                   <div class="o-mail-MessageInReply me-5 position-relative d-flex">
+                       <!--<span class="o-mail-Message-author cursor-pointer" aria-lable="open card">
+                           <strong class="me-1 text-truncate"><t t-esc="item.fieldname"/></strong></span>-->
+                       <div class="card border-primary mb-3">
+                         <div class="card-header"><t t-esc="item.fieldname"/></div>
+                         <div class="position-relative card-body text-primary" t-on-click="() => this.selectItem(item)" t-att-id="item.id">
+                           <p style="color: #000000;" class="card-text">
+                                <t t-if="item.result">
+                                   <t t-esc="item.result"/>
+                                </t>
+                           </p>
+                          </div>
+                        </div>
+                   </div>
+                </t>
+            </div>
+           </t>
+           <p t-if="items.length === 0" t-esc="emptyText" class="text-center fst-italic text-500 fs-6"/>
+          </div>
+          <br/>
+          <br/>
+        </div>
+      </div>
+    </t>
+</templates>

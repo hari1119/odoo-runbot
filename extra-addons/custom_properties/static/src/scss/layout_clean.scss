@@ -1,0 +1,179 @@
+.o_clean_header img {
+    max-height: 90px;
+    max-width: 300px;
+}
+.compay_name {
+    font-size:45px;
+}
+.o_header_layout_custom {
+    border-bottom: 1px solid black;
+}
+.o_report_layout_custom {
+	//background-color: red;
+
+}
+.o_consignor_title {
+      left: 200px;
+}
+.row_custom {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Adjust as needed */
+  margin-bottom: 10px; /* Example margin between rows */
+}
+.col_custom {
+  flex: 1; /* Equal width columns */
+  padding: 10px; /* Example padding */
+}
+
+.o_consignor {
+       position: absolute;
+       width: 360px;    /* Set width to 300 pixels */
+       left: 90px;
+       //background-color: blue;
+       top: 10px;
+       border: 1px solid black;
+       padding: 5px;
+    }
+
+.o_ship_to_title {
+       position: absolute;
+       left: 480px;
+}
+.o_ship_to {
+       position: absolute;
+       width: 350px;    /* Set width to 300 pixels */
+       top: 10px;
+       left: 550px;
+       //background-color: yellow;
+       border: 1px solid black;
+       padding: 5px;
+    }
+
+.o_invoice_to_title {
+       position: absolute;
+       top:150px;
+       left: 460px;
+}
+.o_invoice_to {
+       position: absolute;
+       left: 550px;
+       width: 350px;    /* Set width to 300 pixels */
+       top:150px;
+       //background-color: green;
+       border: 1px solid black;
+       padding: 5px;
+    }
+
+.o_title_size {
+      font-size: 25px;
+      left: 250px;
+   }
+
+.o_entry_details {
+       position: absolute;
+       width: 360px;    /* Set width to 300 pixels */
+       top:130px;
+       left: 5px;
+       padding: 0px;
+    }
+
+.o_ref_details {
+       position: absolute;
+       width: 450px;    /* Set width to 300 pixels */
+       top:260px;
+       left: 5px;
+       padding: 2px;
+    }
+
+.o_dep_details {
+       position: absolute;
+       width: 450px;    /* Set width to 300 pixels */
+       top:280px;
+       left: 460px;
+       padding: 2px;
+    }
+.o_core_table {
+       position: absolute;
+       top:525px;
+       width: 97%;
+}
+
+.o_total_info {
+       position: absolute;
+       width: 340px;    /* Set width to 300 pixels */
+       //top:280px;
+       left: 560px;
+       padding: 2px;
+    }
+
+.o_team-footer {
+       background-color: #b5b9bf;
+}
+
+.o_report_layout_background_custom {
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    min-height: 620px
+}
+
+/*.o_report_layout_custom {
+    h1, h2, h3 {
+        color: $o-default-report-primary-color;
+        font-weight: bolder;
+    }
+    strong {
+        color: $o-default-report-secondary-color;
+    }
+    table {
+        &.o_main_table {
+            margin-bottom: 0;
+        }
+
+        thead {
+            color: $o-default-report-secondary-color;
+            tr th {
+                border-top: 3px solid $o-default-report-secondary-color !important;
+                text-transform: uppercase;
+            }
+        }
+        tbody {
+            color: #000;
+            tr:first-child td {
+                border-top: none;
+            }
+            tr:last-child td {
+                border-bottom: 3px solid $o-default-report-secondary-color;
+            }
+            tr {
+                td {
+                    padding: 15px 5px;
+                }
+                td:last-child {
+                }
+            }
+        }
+    }
+    #total {
+        strong {
+            color: $o-default-report-secondary-color;
+        }
+    }
+    .row:not(#total) > div:has(table) {
+        top: -16px;
+    }
+    .row > div > table,
+    div#total table, .totals_taxes_company_currency table {
+        tr {
+            &:first-child td,
+            &.o_subtotal {
+                border-top: none !important;
+            }
+            &:last-child td,
+            &.o_total {
+                border-top: 1px solid map-get($grays, '200') !important;
+            }
+        }
+    }
+} */
+

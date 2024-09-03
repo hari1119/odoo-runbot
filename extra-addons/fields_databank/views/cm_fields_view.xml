@@ -1,0 +1,338 @@
+<odoo>
+  <data>
+    <record id="view_fields_databank_form_one" model="ir.ui.view">
+        <field name="name">fields databank form</field>
+        <field name="model">fields.databank</field>
+        <field name="arch" type="xml">
+            <form string="Fields Databank" create="0">
+                <header>
+			<button name="button_action" type="object" string="Validate" icon="fa-bug" 
+                         data-hotkey="t"/>
+			<!--<button string="Confirm"
+                                 icon="fa-thumbs-up"
+                                 data-hotkey="c"
+                                 class="btn btn-primary"
+                                 type="object"
+			name="entry_confirm" invisible = "status != 'draft'"/>-->
+                        <button string="Approve"
+                                 icon="fa-thumbs-up"
+                                 class="btn btn-success"
+                                 data-hotkey="a"
+                                 type="object"
+                                 name="entry_approve" invisible = "status != 'wfa'"/>
+                        <button string="Reject"
+                                icon="fa-thumbs-down"
+                                data-hotkey="r"
+                                class="btn btn-danger"
+                                type="object"
+                                name="entry_reject" invisible = "status != 'wfa'"/>
+                        <button string="Cancel"
+                                icon="fa-thumbs-down"
+                                data-hotkey="shift+c"
+                                class="btn btn-primary"
+                                type="object"
+                                name="entry_cancel" invisible = "status != 'approved'"/>
+
+                        <!-- Check this link for more icon | https://fontawesome.com/v4/icons/--> 
+                </header>
+                <sheet>
+                  <group string="Char">
+                     <group>
+                        <field name="name"/>
+                        <field name="short_name"/>
+                        <field name="remark" widget="my_text_field"/>
+                        <field name="quote_ref"/>
+                        <field name="address"/>
+                        <field name="del_address"/>
+                        <field name="entry_spec"/>
+                        <field name="mobile_no"/>
+                        <field name="phone_no"/>
+                        <field name="pincode"/>
+                        <field name="desc"/>
+                        <field name="attach_desc"/>
+                        <field name="invoice_status"/>
+                        <field name="payment_status"/>
+                        <field name="contact_person"/>
+                        <field name="fax"/>
+                        <field name="website"/>
+                        <field name="aadhar_no"/>
+                        <field name="landmark"/>
+                        <field name="bank_name"/>
+                        <field name="ifsc_code"/>
+                        <field name="branch_name"/>
+                        <field name="tax_name"/>
+                        <field name="mail_from"/>
+                        <field name="mail_cc"/>
+                        <field name="mail_bcc"/>
+                        <field name="interval"/>
+                        <field name="subject"/>
+                     </group>
+                     <group>
+                        <field name="vendor_inv_no"/>
+                        <field name="ref_no"/>
+                        <field name="name_draft"/>
+                        <field name="ack_no"/>
+                        <field name="cheque_favor"/>
+                        <field name="tin_no"/>
+                        <field name="pan_no"/>
+                        <field name="cst_no"/>
+                        <field name="vat_no"/>
+                        <field name="tan_no"/>
+                        <field name="ap_rej_remarks"/>
+                        <field name="purpose"/>
+                        <field name="email"/>
+                        <field name="gst_no"/>
+                        <field name="street"/>
+                        <field name="street1"/>
+                        <field name="account_no"/>
+                        <field name="state_code"/>
+                        <field name="acc_holder_name"/>
+                        <field name="street1"/>
+                        <field name="cin_no"/>
+                        <field name="job_position"/>
+                        <field name="mail_to"/>
+                        <field name="from_mail_id"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Selection">
+                     <group>
+                        <field name="status"/>
+                        <field name="pay_mode"/>
+                        <field name="grn_type"/>
+                        <field name="entry_from"/>
+                        <field name="warranty"/>
+                        <field name="sms_status"/>
+                        <field name="jc_status"/>
+                        <field name="seq_num_reset"/>
+                        <field name="company_type"/>
+                     </group>
+                     <group>
+                        <field name="invoice_control"/>
+                        <field name="entry_mode" invisible="1"/>
+                        <field name="wages_type"/>
+                        <field name="priority"/>
+                        <field name="tds"/>
+                        <field name="email_status"/>
+                        <field name="gst_category"/>
+                        <field name="grade"/>
+                        <field name="rating"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Boolean">
+                     <group>
+                        <field name="active" widget="boolean_toggle"/>
+                        <field name="active_rpt" widget="boolean_toggle"/>
+                        <field name="active_trans" widget="boolean_toggle"/>
+                     </group>
+                     <group>
+                        <field name="manual_round_off" widget="boolean_toggle"/>
+                        <field name="trigger_del" widget="boolean_toggle"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Many2one">
+                     <group>
+                        <field name="department_id"/>
+                        <field name="confirm_user_id"/>
+                        <field name="brand_id"/>
+                        <field name="ap_rej_user_id"/>
+                        <field name="cancel_user_id"/>
+                        <field name="update_user_id"/>
+                        <field name="user_id"/>
+                        <field name="attach_user_id"/>
+                        <field name="partner_id"/>
+                        <field name="company_id"/>
+                        <field name="product_id"/>
+                        <field name="uom_id"/>
+                        <field name="department_id"/>
+                        <field name="model_id"/>
+                        <field name="catg_id"/>
+                        <field name="del_term_id"/>
+                        <field name="inward_id"/>
+                        <field name="outward_id"/>
+                        <field name="trans_type"/>
+                        <field name="city_id"/>
+                        <field name="expense_id"/>
+                        <field name="task_manager_id"/>
+                        <field name="title"/>
+                     </group>
+                     <group>
+                        <field name="destination_id"/>
+                        <field name="state_id"/>
+                        <field name="country_id"/>
+                        <field name="division_id"/>
+                        <field name="project_id"/>
+                        <field name="bank_id"/>
+                        <field name="currency_id"/>
+                        <field name="period_id"/>
+                        <field name="account_id"/>
+                        <field name="transport_id"/>
+                        <field name="employee_id"/>
+                        <field name="job_id"/>
+                        <field name="executive_id"/>
+                        <field name="segment_id"/>
+                        <field name="source_id"/>
+                        <field name="labor_id"/>
+                        <field name="branch_id"/>
+                        <field name="tax_group_id"/>
+                        <field name="inactive_user_id"/>
+                        <field name="model_name"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Many2many">
+                     <group>
+                        <field name="taxes_id" widget="many2many_tags"/>
+                     </group>
+                     <group>
+                        <field name="attachment" widget="many2many_tags"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Float">
+                     <group>
+                        <field name="qty"/>
+                        <field name="bal_qty"/>
+                        <field name="rec_qty"/>
+                        <field name="approve_qty"/>
+                        <field name="reject_qty"/>
+                        <field name="unit_price"/>
+                        <field name="unitprice_wt"/>
+                        <field name="disc_amt"/>
+                        <field name="disc_per"/>
+                        <field name="amt"/>
+                        <field name="tot_dis_amt"/>
+                        <field name="taxable_amt"/>
+                        <field name="round_off_amt"/>
+                     </group>
+                     <group>
+                        <field name="tot_amt"/>
+                        <field name="net_amt"/>
+                        <field name="tax_amt"/>
+                        <field name="bal_amt"/>
+                        <field name="other_amt"/>
+                        <field name="line_tot_amt"/>
+                        <field name="tds_amt"/>
+                        <field name="freight_amt"/>
+                        <field name="amc_period"/>
+                        <field name="cgst_amt"/>
+                        <field name="sgst_amt"/>
+                        <field name="igst_amt"/>
+                        <field name="fixed_disc_amt"/>
+                        <field name="grand_tot_amt"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="HTML">
+                     <group>
+                        <field name="note"/>
+                     </group>
+                     <group>
+                     </group>
+                  </group>
+                  <group string="Integer">
+                     <group>
+                        <field name="entry_seq"/>
+                        <field name="version_no"/>
+                     </group>
+                     <group>
+                        <field name="cr_days"/>
+                        <field name="line_count"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Text">
+                     <group>
+                        <field name="cancel_remarks"/>
+                        <field name="inactive_remark"/>
+                        <field name="batch_info"/>
+                     </group>
+                     <group>
+                        <field name="round_off_remark"/>
+                        <field name="closer_note"/>
+                        <field name="rating_feedback"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Date">
+                     <group>
+                        <field name="from_date" options="{'max_date': today}"/>
+                        <field name="dc_date"/>
+                        <field name="entry_date"/>
+                        <field name="request_date" options="{'max_date': today}"/>
+                        <field name="draft_date" options="{'max_date': today}"/>
+                        <field name="due_date"/>
+                        <field name="remind_date"/>
+                        <field name="vendor_inv_date"/>
+                        <field name="cheque_date" options="{'min_date': today}"/>
+                        <field name="clearing_date" options="{'min_date': today}"/>
+                        <field name="quote_date"/>
+                        <field name="eff_from_date" options="{'min_date': today}"/>
+                        <field name="ack_date" options="{'max_date': today}"/>
+                        <field name="comply_date" options="{'max_date': today}"/>
+                        <field name="receive_date" options="{'max_date': today}"/>
+                        <field name="fy_control_date"/>
+                        <field name="effective_date"/>
+                        <field name="serial_no"/>
+                     </group>
+                     <group>
+                        <field name="to_date" options="{'warn_future': true}"/>
+                        <field name="ship_date" options="{'max_date': today}"/>
+                        <field name="stmt_date" options="{'min_date': today}"/>
+                        <field name="delivery_date" options="{'min_date': today}"/>
+                        <field name="cr_date"/>
+                        <field name="dr_date"/>
+                        <field name="enq_date" options="{'max_date': today}"/>
+                        <field name="customer_po_date"/>
+                        <field name="join_date" options="{'max_date': today}"/>
+                        <field name="relive_date" options="{'min_date': today}"/>
+                        <field name="crt_date"/>
+                        <field name="birth_date"/>
+                        <field name="attach_date"/>
+                        <field name="as_on_date"/>
+                        <field name="expiry_date"/>
+                     </group>
+                  </group>
+                </sheet>
+                <sheet>
+                  <group string="Datetime">
+                     <group>
+                        <field name="confirm_date"/>
+                        <field name="ap_rej_date"/>
+                        <field name="inactive_date"/>
+                     </group>
+                     <group>
+                        <field name="cancel_date"/>
+                        <field name="update_date"/>
+                     </group>
+                  </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+        <record id="action_fields_databank" model="ir.actions.act_window">
+            <field name="name">Fields Databank</field>
+            <field name="res_model">fields.databank</field>
+            <field name="view_mode">form</field>
+        </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Fields Databank" id="fields_databank.menu_root" web_icon="fields_databank,static/description/icon.png"
+              action="fields_databank.action_fields_databank"/>
+  </data>
+</odoo>

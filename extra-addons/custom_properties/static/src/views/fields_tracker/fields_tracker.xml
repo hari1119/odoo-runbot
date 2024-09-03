@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="custom_properties.FieldstrackerView">
+	    <Layout display="display" className="'o_dashboard h-100'">
+		    <h> Welcome Buddy! </h>
+        </Layout>
+    </t>
+</templates>

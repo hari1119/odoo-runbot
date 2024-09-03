@@ -1,0 +1,121 @@
+{'Base Custom Profile Master': {'aadhar_no': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'active': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'active_rpt': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'active_trans': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'cheque_favor': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'city_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'company_id': {'required': 'want to add', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'contact_person': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'country_id': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'cst_no': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'currency_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'email': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'entry_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Profile Master': {'fax': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'gst_no': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'mobile_no': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'note': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'pan_no': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'phone_no': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'pincode': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'short_name': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'state_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'status': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'street': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'street1': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'tan_no': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'tin_no': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'user_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'website': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Profile Master': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'active': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'active_rpt': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'active_trans': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'entry_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base custom survey': {'from_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'note': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'status': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'to_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'user_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom survey': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'active': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'active_rpt': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'active_trans': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'entry_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Master': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'note': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'short_name': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'status': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'user_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Master': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'active': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'active_rpt': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'active_trans': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'entry_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Fiscal Year': {'from_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'note': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'short_name': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'status': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'to_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'user_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Fiscal Year': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'active': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'active_rpt': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'active_trans': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'address': {'required': 'added', 'size': 'want to add', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'company_id': {'required': 'want to add', 'size': 'want to add', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Transaction': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'currency_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Transaction': {'department_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'division_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'entry_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Transaction': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'name_draft': {'required': 'added', 'size': 'want to add', 'copied': 'added', 'index': 'want to add', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'note': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'partner_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'pay_mode': {'required': 'added', 'size': 'added', 'copied': 'added', 'index': 'added', 'tracking': 'want to add'}}}
+{'Base Custom Transaction': {'status': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'user_id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base Custom Transaction': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'from_date': {'required': 'want to add', 'size': 'want to add', 'copied': 'added', 'index': 'want to add', 'tracking': 'want to add'}}}
+{'Base custom report': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'image_1920': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'to_date': {'required': 'want to add', 'size': 'want to add', 'copied': 'added', 'index': 'want to add', 'tracking': 'want to add'}}}
+{'Base custom report': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'Base custom report': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'create_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'create_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'id': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'name': {'required': 'want to add', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'write_date': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}
+{'custom.properties': {'write_uid': {'required': 'added', 'size': 'added', 'copied': 'want to add', 'index': 'added', 'tracking': 'added'}}}

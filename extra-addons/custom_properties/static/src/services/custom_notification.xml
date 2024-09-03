@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="custom_module.CustomNotificationTemplate">
+        <div t-on-mouseenter="this.props.freeze" t-on-mouseleave="this.props.refresh" t-attf-class="o_custom_notification {{props.className}} border border-{{props.type}} mb-2 position-relative"
+            role="alert" aria-live="assertive" aria-atomic="true" class="toast">
+            
+            <div class="custom_toast-header">
+                <strong  class="me-auto" t-if="props.title" t-attf-class="o_custom_notification_title d-block text-{{props.type}} py-2 ps-3 pe-7" t-out="props.title"/>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" t-on-click="props.close"></button>
+            </div>    
+            <div class="custom_toast-body">
+                <div t-if="props.message" t-out="props.message"/>
+                <div t-if="props.buttons.length" class="o_notification_buttons d-flex gap-2 mt-2">
+                    <button class="custom_button" t-foreach="props.buttons" t-as="button" type="button" t-key="button_index"
+                                        t-attf-class="btn {{button.primary ? 'btn-primary' : 'btn-secondary'}}" t-on-click="button.onClick">
+                        <!-- <t t-if="button.icon">
+                        <i t-if="button.icon.indexOf('fa-') === 0" role="img"
+                                                t-att-aria-label="button.name" t-att-title="button.name"
+                                                t-attf-class="fa fa-fw o_button_icon {{button.icon}}"/>
+                        <img t-else="" t-att-src="button.icon" t-att-alt="button.name"/>
+                        </t> -->
+                        <span t-esc="button.name"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

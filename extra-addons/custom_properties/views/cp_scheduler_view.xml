@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    
+    <!-- explicit form view definition -->
+    <record id="cp_scheduler_form" model="ir.ui.view">
+		<field name="name">CP Scheduler</field>
+		<field name="model">cp.scheduler</field>
+		<field name="arch" type="xml">
+		    <form string="CP Scheduler" delete="0" create="0">
+			<group>
+			    <group  string = "Auto Transaction Event">
+				
+			    </group>
+			</group>
+			
+			<group>
+			    <group  string = "Mail Schedulers">
+				<button type="object" name="custom_transaction_mail_action" string="Action" class="btn btn-primary"/><p><b>Auto Approved Transactions Mail</b></p>
+                                <button type="object" name="auto_logger_mail" string="Action" class="btn btn-primary"/><p><b>Auto Logger Mail</b></p>
+			    </group>
+			</group>
+		    </form>
+		</field>
+	</record>
+    <!-- form view end -->
+
+    <!-- window actions opening views on models -->
+
+    <record id="cp_scheduler_win_action" model="ir.actions.act_window" >
+      <field name="name">CP Scheduler</field>
+      <field name="res_model">cp.scheduler</field>
+      <field name="view_mode">form</field>
+      <field name="context">{}</field>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="Scheduler Actions" id="cp_scheduler_act_menu" parent="custom_properties_general_sub_menu"
+              action="cp_scheduler_win_action"/>
+  </data>
+</odoo>

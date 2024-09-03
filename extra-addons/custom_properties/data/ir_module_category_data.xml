@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+	<record model="ir.module.category" id="module_custom_category">
+	    <field name="name">KGiSL</field>
+	    <field name="sequence">1</field>
+	</record>
+
+	<record model="ir.module.category" id="module_child_category">
+	    <field name="name">custom_modules</field>
+	    <field name="parent_id" ref="module_custom_category"/>
+	</record>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t t-name="custom_properties.AppsBar">
+		<div class="mk_apps_sidebar_panel border-start" id="silde" style="border-right: 1px solid;border-color: #EEEEEE;">
+			<div class="mk_apps_sidebar border-start">
+				<ul class="mk_apps_sidebar_menu border-start">
+				    <t t-foreach="this.appMenuService.getAppsMenuItems()" t-as="app" t-key="app.id">
+			            <li class="text-900 fw-bold text-truncate" t-attf-class="nav-item {{ app.id === this.appMenuService.getCurrentApp()?.id ? 'active' : '' }}" t-att-data-tooltip="app.name">
+			            	<a 
+			            		t-att-href="app.href"
+		            		        t-att-data-menu-id="app.id" 
+		            			t-att-data-menu-xmlid="app.xmlid" 
+		            			t-att-data-action-id="app.actionID"
+						t-on-click.prevent="() => app.action()"
+		            			class="nav-link" 
+		            			role="menuitem"
+		            		>
+			                	<img 
+			                		t-if="app.webIconData" 
+			                		class="mk_apps_sidebar_icon" 
+			                		t-att-src="app.webIconData"
+			                	/>
+			                	<img  
+			                		t-else="" 
+			                		class="mk_apps_sidebar_icon" 
+			                		src="/base/static/description/icon.png"
+			                	/>
+						        <span class="mk_apps_sidebar_name">
+						            <t t-out="app.name"/><h><!--<t t-out="app.count"/>--></h>
+						        </span>
+			            	 </a>
+			            </li>
+			    	</t>
+				</ul>
+				<div style="padding:5px;width:flex;background-color:#EEEEEE;position: -webkit-sticky; position: sticky;bottom: 0px;">
+					<i t-on-click="closeTab" id="arrow_icon" class="fa fa-chevron-left rounded mx-auto" style="font-size:18px;color: #000000;left:40px;"/>
+				</div>
+				<!--<div t-if="sidebarImageUrl" class="mk_apps_sidebar_logo p-2">
+					<img class="img-fluid mx-auto" t-att-src="sidebarImageUrl" alt="Logo"/>
+				</div>-->
+			</div>
+		</div>
+	</t>
+	
+</templates>

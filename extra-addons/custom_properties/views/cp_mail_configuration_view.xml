@@ -1,0 +1,183 @@
+<odoo>
+  <data>
+    
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="cp_mail_configuration_form">
+      <field name="name">Mail Configuration form</field>
+      <field name="model">cp.mail.configuration</field>
+      <field name="arch" type="xml">
+        <form string="Mail Configuration">
+            <header>
+                <button string="Approve" class="btn btn-success" icon="fa-thumbs-up" type="object" name="entry_approve" invisible = "status not in ('draft','editable')" confirm="Are you sure to proceed ?"/>
+                <button string="Set To Draft" class="btn btn-primary" type="object" name="entry_draft" groups = "cm_user_mgmt.group_set_to_draft" invisible = "status != 'active'" confirm="Are you sure to proceed ?"/><!-- group need to set-->
+                <button string="Inactive" class="btn btn-danger" icon="fa-thumbs-down" type="object" name="entry_inactive" invisible = "status != 'active'" confirm="Are you sure to proceed ?"/>
+                <field name="status" widget="statusbar" style="width:700px;"/>                
+            </header>
+            <sheet>
+                <widget name="web_ribbon" title="Active" bg_color="bg-success" invisible = "status != 'active'"/>
+                <group>
+                    <group>
+                        <field name="mail_type" required = "1" readonly = "status in ('active','inactive')"/>
+                        <field name="model_name" readonly = "status in ('active','inactive')" required="mail_type == 'transaction'" invisible="mail_type != 'transaction'" options="{'no_create': True}"/>
+                        <field name="name" readonly = "status in ('active','inactive')" required="1"/>
+                    </group>
+                    <group>
+                        <field name="subject" required = "1" readonly = "status in ('active','inactive')"/>
+                        <field name="from_mail_id" required = "1" readonly = "status in ('active','inactive')"/>
+                        <field name="interval" required = "mail_type == 'scheduler'" readonly = "status in ('active','inactive')" invisible = "mail_type == 'transaction'"/>
+                    </group>
+                </group>
+                
+                <notebook>
+                    <page string="Email Details" >
+                        <field name="line_ids" string="Email Settings" colspan="4" nolabel="1" readonly="status == 'inactive'">
+                            <tree string="Mail Configuration Line Tree" editable="bottom">
+
+                                <field name="status" column_invisible="1"/>
+                                <field name="header_id" column_invisible="1"/>
+                                <field name="email" required="1"/>
+                                <field name="to_address"/>
+                                <field name="cc_address"/>
+                                <field name="bcc_address"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="note"  placeholder="Write your notes here."/>
+                        </group>
+                    </page>
+                    <page string="Inactive Remark" invisible = "status not in ('active','inactive')">
+                        <field name="inactive_remark" nolabel="1" readonly = "status != 'active'"/>
+                    </page>
+                    <page string="Entry Info">
+                        <group>
+                            <group>
+                                <field name="company_id" readonly = "1" force_save="1"/> 
+                                <field name="active_trans"/>
+                                <field name="active_rpt"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                                <field name="entry_mode"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="ap_rej_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="inactive_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="update_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="crt_date" readonly = "1" force_save="1"/>
+                                <field name="ap_rej_date" readonly = "1" force_save="1"/>
+                                <field name="inactive_date" readonly = "1" force_save="1"/>
+                                <field name="update_date" readonly = "1" force_save="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+                <div class="oe_chatter">
+                    <field name="message_ids"/>
+                </div>
+            </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- form view end -->
+
+    
+    <!-- explicit tree view definition -->
+    <record id="cp_mail_configuration_tree" model="ir.ui.view">
+        <field name="name">Mail Configuration Tree</field>
+        <field name="model">cp.mail.configuration</field>
+        <field name="arch" type="xml">
+            <tree string="Mail Configuration" js_class="cp_mail_configuration_list"
+                decoration-info="status == 'draft'" 
+                decoration-success = "status == 'editable'"
+                decoration-bf = "status in ('active','draft')"
+                decoration-primary = "status == 'inactive'">
+
+                <field name="mail_type"/>
+                <field name="model_name"/>
+                <field name="name"/>
+                <field name="status" widget="badge" 
+                        decoration-info = "status == 'draft'"
+                        decoration-success = "status == 'editable'"
+                        decoration-bf = "status == 'active'"
+                        decoration-primary = "status == 'inactive'"/>
+                <field name="ap_rej_user_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- tree view end -->
+
+    <!-- explicit search view definition -->
+    <record id="cp_mail_configuration_search" model="ir.ui.view">
+        <field name="name">Mail Configuration Search</field>
+        <field name="model">cp.mail.configuration</field>
+        <field name="arch" type="xml">
+            <search string="Search Mail Configuration">
+                <field name="name"/>
+
+                <filter name="my_configuration" string="My Configuration" domain="[('user_id', '=', uid)]"/> 
+                <filter name="Draft" domain="[('status', '=', 'draft')]"/>
+                <filter name="Active" domain="[('status', '=', 'active')]"/>
+                <filter name="Inactive" domain="[('status', '=', 'inactive')]"/>
+                <filter name="Editable" domain="[('status', '=', 'editable')]"/>
+                <filter name="My Draft" domain="[('status', '=', 'draft'),('user_id', '=', uid)]"/>
+                <filter name="My Active" domain="[('status', '=', 'active'),('user_id', '=', uid)]"/>
+                <filter name="My Inactive" domain="[('status', '=', 'inactive'),('user_id', '=', uid)]"/>
+                <filter name="My Editable" domain="[('status', '=', 'editable'),('user_id', '=', uid)]"/>
+                <filter name="Hidden" domain="[('active', '=', False)]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Mail Type" name="mail_type" domain="[]" context="{'group_by': 'mail_type'}"/>
+                    <filter string="Model Name" name="model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+                    <filter string="Status" name="status" domain="[]" context="{'group_by': 'status'}"/>
+                    <filter string="Entry Mode" name="entry_mode" domain="[]" context="{'group_by': 'entry_mode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- search view end -->
+
+
+    <!-- window actions opening views on models -->
+
+    <record id="cp_mail_configuration_win_action" model="ir.actions.act_window" >
+      <field name="name">Mail Configuration</field>
+      <field name="res_model">cp.mail.configuration</field>
+      <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="cp_mail_configuration_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            No mail configuration record found. Let's create one!
+          </p><p>
+            This is for mail configuration.
+          </p>
+        </field>
+    </record>
+    
+    <!-- Separate tree view definition -->
+    <record id="cp_view_mail_configuration_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="custom_properties.cp_mail_configuration_tree"/>
+        <field name="act_window_id" ref="cp_mail_configuration_win_action"/>
+    </record>
+    
+    <!-- Separate form view definition -->
+    <record id="cp_view_mail_configuration_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="custom_properties.cp_mail_configuration_form"/>
+        <field name="act_window_id" ref="cp_mail_configuration_win_action"/>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="Mail Configuration" id="cp_mail_configuration_act_menu" parent="custom_properties_mail_sub_menu"
+              action="cp_mail_configuration_win_action"/>
+  </data>
+</odoo>

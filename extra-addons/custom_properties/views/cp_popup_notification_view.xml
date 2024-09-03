@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+
+    
+    <!-- explicit tree view definition -->
+    <record id="cp_popup_notification_tree" model="ir.ui.view">
+        <field name="name">Popup Notification Tree</field>
+        <field name="model">cp.popup.notification</field>
+        <field name="arch" type="xml">
+            <tree string="Popup Notification">
+                <field name="name" readonly="1" force_save="1"/>
+                <field name="entry_date" readonly="1" force_save="1"/>
+                <field name="user_id" readonly="1" force_save="1"/>
+            </tree>
+        </field>
+    </record>
+    <!-- tree view end -->
+
+    <!-- explicit search view definition -->
+    <record id="cp_popup_notification_search" model="ir.ui.view">
+        <field name="name">Popup Notification Search</field>
+        <field name="model">cp.popup.notification</field>
+        <field name="arch" type="xml">
+            <search string="Popup Notification">
+                <field name="name"/>
+                <field name="user_id" />
+                
+                <group expand="0" string="Group By">
+                    <filter string="User Name" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+                    <filter string="Entry Date" name="entry_date" domain="[]" context="{'group_by': 'entry_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- search view end -->
+
+
+    <!-- window actions opening views on models -->
+
+    <record id="cp_popup_notification_win_action" model="ir.actions.act_window" >
+      <field name="name">Popup Notification</field>
+      <field name="res_model">cp.popup.notification</field>
+      <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="cp_popup_notification_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            No popup notification record found. Let's create one!
+          </p><p>
+            This is for popup notification.
+          </p>
+        </field>
+    </record>
+    
+    <!-- Separate tree view definition -->
+    <record id="cp_view_popup_notification_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="custom_properties.cp_popup_notification_tree"/>
+        <field name="act_window_id" ref="cp_popup_notification_win_action"/>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="Popup Notification" id="cp_popup_notification_act_menu" parent="custom_properties_general_sub_menu"
+              action="cp_popup_notification_win_action"/>
+  </data>
+</odoo>

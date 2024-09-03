@@ -1,0 +1,165 @@
+<odoo>
+  <data>
+    
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="cp_external_apis_form">
+      <field name="name">External APIs form</field>
+      <field name="model">cp.external.apis</field>
+      <field name="arch" type="xml">
+        <form string="External APIs">
+            <header>
+                <button string="Approve" class="btn btn-success" icon="fa-thumbs-up" type="object" name="entry_approve" invisible = "status not in ('draft','editable')" confirm="Are you sure to proceed ?"/>
+                <button string="Set To Draft" class="btn btn-primary" type="object" name="entry_draft" groups = "cm_user_mgmt.group_set_to_draft" invisible = "status != 'active'" confirm="Are you sure to proceed ?"/><!-- group need to set-->
+                <button string="Inactive" class="btn btn-danger" icon="fa-thumbs-down" type="object" name="entry_inactive" invisible = "status != 'active'" confirm="Are you sure to proceed ?"/>
+                <field name="status" widget="statusbar" style="width:700px;"/>                
+            </header>
+            <sheet>
+                <widget name="web_ribbon" title="Active" bg_color="bg-success" invisible = "status != 'active'"/>
+                <group>
+                    <group>
+                        <field name="name" required="1" readonly = "status in ('active','inactive')"/>
+                        <field name="service_provider" required = "1" readonly = "status in ('active','inactive')"/>
+                        <field name="api_link" required = "1" widget="url" readonly = "status in ('active','inactive')"/>
+                        <field name="user_name" readonly = "status in ('active','inactive')"/>
+                        <field name="password" readonly = "status in ('active','inactive')"/>
+                    </group>
+                </group>
+                
+                <notebook>
+                    <page string="Inactive Remark" invisible = "status not in ('active','inactive')">
+                        <field name="inactive_remark" nolabel="1" readonly = "status != 'active'"/>
+                    </page>
+                    <page string="Entry Info">
+                        <group>
+                            <group>
+                                <field name="company_id" readonly = "1" force_save="1"/> 
+                                <field name="active_trans"/>
+                                <field name="active_rpt"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                                <field name="entry_mode"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="ap_rej_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="inactive_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                                <field name="update_user_id" readonly = "1" widget="many2one_avatar_user" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="crt_date" readonly = "1" force_save="1"/>
+                                <field name="ap_rej_date" readonly = "1" force_save="1"/>
+                                <field name="inactive_date" readonly = "1" force_save="1"/>
+                                <field name="update_date" readonly = "1" force_save="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook> 
+                <div class="oe_chatter">
+                    <field name="message_ids"/>
+                </div>
+            </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- form view end -->
+
+    
+    <!-- explicit tree view definition -->
+    <record id="cp_external_apis_tree" model="ir.ui.view">
+        <field name="name">External APIs Tree</field>
+        <field name="model">cp.external.apis</field>
+        <field name="arch" type="xml">
+            <tree string="External APIs" js_class="cp_external_api_list"
+                decoration-info="status == 'draft'" 
+                decoration-success = "status == 'editable'"
+                decoration-bf = "status in ('active','draft')"
+                decoration-primary = "status == 'inactive'">
+
+                <field name="name"/>
+                <field name="service_provider"/>
+                <field name="api_link"/>
+                <field name="status" widget="badge" 
+                        decoration-info = "status == 'draft'"
+                        decoration-success = "status == 'editable'"
+                        decoration-bf = "status == 'active'"
+                        decoration-primary = "status == 'inactive'"/>
+                <field name="ap_rej_user_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- tree view end -->
+
+    <!-- explicit search view definition -->
+    <record id="cp_external_apis_search" model="ir.ui.view">
+        <field name="name">External APIs Search</field>
+        <field name="model">cp.external.apis</field>
+        <field name="arch" type="xml">
+            <search string="External APIs">
+                <field name="name"/>
+                <field name="service_provider"/>
+                <field name="api_link"/>
+
+                <filter name="my_configuration" string="My Configuration" domain="[('user_id', '=', uid)]"/> 
+                <filter name="Draft" domain="[('status', '=', 'draft')]"/>
+                <filter name="Active" domain="[('status', '=', 'active')]"/>
+                <filter name="Inactive" domain="[('status', '=', 'inactive')]"/>
+                <filter name="Editable" domain="[('status', '=', 'editable')]"/>
+                <filter name="My Draft" domain="[('status', '=', 'draft'),('user_id', '=', uid)]"/>
+                <filter name="My Active" domain="[('status', '=', 'active'),('user_id', '=', uid)]"/>
+                <filter name="My Inactive" domain="[('status', '=', 'inactive'),('user_id', '=', uid)]"/>
+                <filter name="My Editable" domain="[('status', '=', 'editable'),('user_id', '=', uid)]"/>
+                <filter name="Hidden" domain="[('active', '=', False)]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Service Provider" name="service_provider" domain="[]" context="{'group_by': 'service_provider'}"/>
+                    <filter string="Status" name="status" domain="[]" context="{'group_by': 'status'}"/>
+                    <filter string="Entry Mode" name="entry_mode" domain="[]" context="{'group_by': 'entry_mode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- search view end -->
+
+
+    <!-- window actions opening views on models -->
+
+    <record id="cp_external_apis_win_action" model="ir.actions.act_window" >
+      <field name="name">External APIs</field>
+      <field name="res_model">cp.external.apis</field>
+      <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="cp_external_apis_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            No external api configuration record found. Let's create one!
+          </p><p>
+            This is for external apis.
+          </p>
+        </field>
+    </record>
+    
+    <!-- Separate tree view definition -->
+    <record id="cp_view_external_apis_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="custom_properties.cp_external_apis_tree"/>
+        <field name="act_window_id" ref="cp_external_apis_win_action"/>
+    </record>
+    
+    <!-- Separate form view definition -->
+    <record id="cp_view_external_apis_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="custom_properties.cp_external_apis_form"/>
+        <field name="act_window_id" ref="cp_external_apis_win_action"/>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="External APIs" id="cp_external_apis_act_menu" parent="custom_properties_general_sub_menu"
+              action="cp_external_apis_win_action"/>
+  </data>
+</odoo>

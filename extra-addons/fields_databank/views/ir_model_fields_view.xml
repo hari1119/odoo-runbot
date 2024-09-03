@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="ir_model_fields_action" model="ir.actions.act_window">
+            <field name="name">Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.model.fields</field>
+             <field name="view_mode">tree,form</field>
+            <field name="domain">[('model_id.name','=','Fields Databank')]</field>
+		    <!--<field name="search_view_id" ref="m_search_view_users"/>-->
+	</record>
+
+    <!-- menu categories -->
+
+    <menuitem name="Field Details" id="fields_details_menu" parent="fields_databank.menu_root" action="ir_model_fields_action"/>
+
+    <!-- actions menus -->
+
+    <!--<menuitem name="Users" id="cm_user_act_menu" parent="cm_user_m_parent" action="mma_res_users_new"/>	-->	    
+    </data>
+</odoo>

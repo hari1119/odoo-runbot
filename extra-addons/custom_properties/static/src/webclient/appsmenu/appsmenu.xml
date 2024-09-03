@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t 
+		t-name="custom_properties.AppsMenu" 
+		t-inherit="web.Dropdown" 
+		t-inherit-mode="primary"
+	>
+		<xpath expr="//div[@t-ref='menuRef']" position="attributes">
+			<attribute name="t-attf-style">
+				background-image: url("/custom_properties/static/src/img/background.png");
+		    </attribute>
+	    </xpath>
+	</t>
+	
+</templates>

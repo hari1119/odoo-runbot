@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+ <t t-name="CustomCopyButton" t-inherit="web.CopyButton" t-inherit-mode="extension">
+        <xpath expr="//button" position="replace">
+  <button class="text-nowrap copy" t-ref="button" t-att-disabled="props.disabled" t-attf-class="{{ props.className || '' }}" 
+           t-on-click.stop="onClick">
+  <span data-text-end="Copied!" data-text-initial="Copy to clipboard" class="tooltip"></span>
+  <span>
+      <img src="custom_properties/static/src/img/copyclipbord.png" alt="Icon" class="copy-img"/>
+  </span>
+</button>
+
+       </xpath>
+   </t>
+   
+   
+   <t t-name="CustomCopyClipboardField" t-inherit="web.CopyClipboardField" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'd-grid rounded-2 overflow-hidden')]" position="replace">
+            <div>
+                <Field t-props="fieldProps"/>
+                <CopyButton className="copyButtonClassName" content="props.record.data[props.name]" copyText="copyText" successText="successText"/>
+            </div>
+        </xpath>
+   </t>
+
+</templates>
