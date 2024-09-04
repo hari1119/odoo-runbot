@@ -8,6 +8,5 @@ COPY extra-addons/custom_properties ${ADDON_PATH}/custom_properties/
 
 
 COPY requirements.txt requirements.txt
-RUN apt-get update && apt-get install -y python3-pip && pip3 install --no-cache-dir -r requirements.txt
 
 CMD ["odoo", "-d", "odoo", "--log-db=all"]
